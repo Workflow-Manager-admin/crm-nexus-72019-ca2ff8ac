@@ -1,82 +1,114 @@
-# Lightweight React Template for KAVIA
+# CRM Nexus Frontend (React)
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+This is the frontend web UI for CRM Nexus, a modern and responsive customer relationship management solution. It is built using React with minimal dependencies, a clean layout, color and theme consistency, and accessibility first design.
 
-## Features
+## 🚀 Features
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+- **User Authentication** (Signup/Login/JWT management)
+- **Customer Management** (CRUD, search/filter, tables, profile view)
+- **Interaction Logging** (calls, emails, meetings with timestamped history)
+- **Task Assignment & Tracking** (Create, edit, complete, reminders)
+- **Metrics Dashboard** (Visual analytics, charts, stats)
+- **Export to CSV** (Customer data export with one click)
+- **Responsive Design** (Sidebar, topnav, mobile-first fluid layout)
+- **Custom Theming** (Color palette, dark/light toggle)
+- **In-App Guidance** (Accessible help, tooltips in forms/tables)
+- **Keyboard and Screen Reader Accessible**
 
-## Getting Started
+## 🧑‍💻 Getting Started
 
-In the project directory, you can run:
+In the `crm_frontend_app` directory:
 
-### `npm start`
+- Install dependencies:
+  ```bash
+  npm install
+  ```
+- Start development server:
+  ```bash
+  npm start
+  ```
+  Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Run tests (optional):
+  ```bash
+  npm test
+  ```
 
-### `npm test`
+- Build for production:
+  ```bash
+  npm run build
+  ```
 
-Launches the test runner in interactive watch mode.
+## ⚙️ Configuration
 
-### `npm run build`
+No configuration is necessary for local frontend use beyond what is in `.env` (optional: customize API endpoints). The app expects backend API at `/api` or as configured in source.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🎨 Colors & Theming
 
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
+The application uses CSS custom properties defined in `src/App.css` including:
 
 ```css
 :root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
+  --primary: #1976D2;
+  --secondary: #424242;
+  --accent: #FFB300;
+  --bg-light: #f2f4fa;
+  --bg-dark: #23242a;
+  --text-color: #111;
+  --text-light: #ffffff;
+  --nav-width: 220px;
 }
 ```
 
-### Components
+- **Theme Toggle:** Accessible via the top right sun/moon button. Remembers user choice in-session.
 
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
+## 🖥️ Layout & UX
 
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
+- **Sidebar**: Persistent navigation/sidebar, highlights active link, collapses on mobile.
+- **Topnav**: Title, theme toggle, access to authentication/logout.
+- **Main Panel**: Route-driven, shows current page, always fully responsive (mobile, tablet, desktop).
+- **Forms**: Clearly labeled, focus outline, auto-complete, error announcements.
+- **Tables**: Keyboard navigation, focusable rows/cells.
+- **Dashboard**: Quick stats, charts (if available), next actions.
 
-## Learn More
+## ♿ Accessibility
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- All interactive elements (buttons, inputs, nav items) are keyboard accessible.
+- Sufficient color contrast for all text and buttons.
+- Uses `aria-label`, `aria-*` roles, and adds announcements for dynamic updates.
+- Headings (`h1`, `h2`, …) structure respected on every screen.
+- Focus is always returned after modal/dialog close, and trapped inside modal if present.
 
-### Code Splitting
+## ❓ In-App Help
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Tooltips added for icons and form actions (hover or focus for keyboard users).
+- Short onboarding section at login and dashboard for first-time users.
+- Each form/table provides accessible descriptions for new users.
+- 404 and error pages have getting-started tips.
 
-### Analyzing the Bundle Size
+## 🛠️ Developer Workflow
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **Components:** Find React components in `src/pages` and folders within.
+- **Styling:** Centralized in `src/App.css` for consistency. All colors are CSS variables and easy to update.
+- **Auth:** Context/Provider-based (`src/auth`). Use `useAuth()` for hooks.
+- **Routing:** React Router. Update `src/App.js` for global routes.
+- **APIs:** Change API URLs as needed in fetch/axios calls.
 
-### Making a Progressive Web App
+## 🌟 Customization
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- To update branding, just edit CSS variables in `src/App.css` and change logo text in `Sidebar` (see `App.js`).
+- Add or update sidebar routes in `App.js` and their corresponding pages.
 
-### Advanced Configuration
+## 🧩 Adding Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+See the backend README for more info about API endpoints and expected data shape. Each feature (metrics, export, customer/task CRUD) has its own page/component for easy extension.
 
-### Deployment
+## 🤝 Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Please use semantic messages for commits.
+- PRs and issues welcome! See coding standards in this README and source comments.
 
-### `npm run build` fails to minify
+## 📄 License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Proprietary — CRM Nexus for demo/reference use.
+
