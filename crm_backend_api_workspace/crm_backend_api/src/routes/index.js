@@ -2,6 +2,7 @@ const express = require('express');
 const healthController = require('../controllers/health');
 const authController = require('../controllers/auth');
 const customerController = require('../controllers/customer');
+const customerCsvController = require('../controllers/customerCsv');
 const { authenticateJWT } = require('../middleware');
 const interactionController = require('../controllers/interaction');
 const taskController = require('../controllers/task');
@@ -25,6 +26,9 @@ const router = express.Router();
 router.post('/auth/register', authController.register.bind(authController));
 router.post('/auth/login', authController.login.bind(authController));
 
+// Customer CSV export (authenticated)
+router.get('/customers/export/csv', authenticateJWT, customerCsvController.exportCsv.bind(customerCsvController));
+
 // Customer CRUD endpoints (all protected)
 router.post('/customers', authenticateJWT, customerController.create.bind(customerController));
 router.get('/customers', authenticateJWT, customerController.list.bind(customerController));
@@ -42,7 +46,7 @@ router.post('/tasks', authenticateJWT, taskController.create.bind(taskController
 router.get('/tasks', authenticateJWT, taskController.list.bind(taskController));
 router.get('/tasks/:id', authenticateJWT, taskController.retrieve.bind(taskController));
 router.put('/tasks/:id', authenticateJWT, taskController.update.bind(taskController));
-router.delete('/tasks/:id', authenticateJWT, taskController.delete.bind(taskController));
+router.delete('/tasks/:id', authenticateJWT, taskController.delete.bind(taskController);
 
 /**
  * @swagger

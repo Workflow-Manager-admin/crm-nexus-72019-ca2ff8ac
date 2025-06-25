@@ -19,7 +19,7 @@ const options = {
       },
       {
         name: 'Customers',
-        description: 'Manage customer records'
+        description: 'Manage customer records. Also supports CSV export at /customers/export/csv.'
       },
       {
         name: 'Interactions',
@@ -51,6 +51,17 @@ const options = {
             notes: { type: 'string', nullable: true, description: 'Notes about the customer', example: 'Biggest client.' },
             createdAt: { type: 'string', format: 'date-time', description: 'Creation timestamp' },
             updatedAt: { type: 'string', format: 'date-time', description: 'Last updated timestamp' },
+          }
+        },
+        // --- CSV Export Endpoint: /customers/export/csv ---
+        CustomersCsvExportQuery: {
+          type: 'object',
+          properties: {
+            name: { type: 'string', description: 'Filter by customer name (exact match)' },
+            email: { type: 'string', description: 'Filter by email (exact match)' },
+            company: { type: 'string', description: 'Filter by company (exact match)' },
+            createdAtFrom: { type: 'string', format: 'date-time', description: 'Created after date' },
+            createdAtTo: { type: 'string', format: 'date-time', description: 'Created before date' }
           }
         },
         CustomerInput: {
