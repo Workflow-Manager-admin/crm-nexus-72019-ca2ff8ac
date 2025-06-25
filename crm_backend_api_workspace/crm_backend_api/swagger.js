@@ -16,8 +16,11 @@ const options = {
       {
         name: 'Health',
         description: 'Health check endpoints'
+      },
+      {
+        name: 'Customers',
+        description: 'Manage customer records'
       }
-      // Other tags (Customers, Tasks, Interactions) may be added as features expand
     ],
     components: {
       securitySchemes: {
@@ -26,6 +29,32 @@ const options = {
           scheme: 'bearer',
           bearerFormat: 'JWT',
           description: 'JWT Authorization header using the Bearer scheme. Example: "Authorization: Bearer {token}"'
+        }
+      },
+      schemas: {
+        Customer: {
+          type: 'object',
+          properties: {
+            id: { type: 'integer', description: 'Customer ID', example: 1 },
+            name: { type: 'string', description: 'Full name', example: 'Jane Doe' },
+            email: { type: 'string', nullable: true, description: 'Email address', example: 'jane@example.com' },
+            phone: { type: 'string', nullable: true, description: 'Phone number', example: '+1-555-1234' },
+            company: { type: 'string', nullable: true, description: 'Company', example: 'Umbrella Corp' },
+            notes: { type: 'string', nullable: true, description: 'Notes about the customer', example: 'Biggest client.' },
+            createdAt: { type: 'string', format: 'date-time', description: 'Creation timestamp' },
+            updatedAt: { type: 'string', format: 'date-time', description: 'Last updated timestamp' },
+          }
+        },
+        CustomerInput: {
+          type: 'object',
+          properties: {
+            name: { type: 'string', description: 'Full name', example: 'Jane Doe' },
+            email: { type: 'string', nullable: true, description: 'Email address', example: 'jane@example.com' },
+            phone: { type: 'string', nullable: true, description: 'Phone number', example: '+1-555-1234' },
+            company: { type: 'string', nullable: true, description: 'Company', example: 'Umbrella Corp' },
+            notes: { type: 'string', nullable: true, description: 'Notes about the customer', example: 'Biggest client.' },
+          },
+          required: ['name']
         }
       }
     },

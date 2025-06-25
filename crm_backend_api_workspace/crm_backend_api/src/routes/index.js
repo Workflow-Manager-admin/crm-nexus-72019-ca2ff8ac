@@ -1,20 +1,30 @@
 const express = require('express');
 const healthController = require('../controllers/health');
 const authController = require('../controllers/auth');
-
-const router = express.Router();
-// Health endpoint
+const customerController = require('../controllers/customer');
+const { authenticateJWT } = require('../middleware');
 
 /**
  * @swagger
  * tags:
  *   - name: Auth
  *     description: User authentication
+ *   - name: Customers
+ *     description: Manage customer records
  */
+
+const router = express.Router();
 
 // Auth endpoints
 router.post('/auth/register', authController.register.bind(authController));
 router.post('/auth/login', authController.login.bind(authController));
+
+// Customer CRUD endpoints (all protected)
+router.post('/customers', authenticateJWT, customerController.create.bind(customerController));
+router.get('/customers', authenticateJWT, customerController.list.bind(customerController));
+router.get('/customers/:id', authenticateJWT, customerController.retrieve.bind(customerController));
+router.put('/customers/:id', authenticateJWT, customerController.update.bind(customerController));
+router.delete('/customers/:id', authenticateJWT, customerController.delete.bind(customerController));
 
 /**
  * @swagger
