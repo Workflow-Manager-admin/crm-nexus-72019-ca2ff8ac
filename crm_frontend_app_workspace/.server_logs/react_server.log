@@ -6,35 +6,11 @@ Attempting to bind to HOST environment variable: 0.0.0.0
 If this was unintentional, check that you haven't mistakenly set it in your shell.
 Learn more here: https://cra.link/advanced-config
 
-(node:12097) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:12422) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
 (Use `node --trace-deprecation ...` to show where the warning was created)
-(node:12097) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:12422) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
 Starting the development server...
 
-Failed to compile.
-
-Syntax error: /home/kavia/workspace/code-generation/crm-nexus-72019-ca2ff8ac/crm_frontend_app_workspace/crm_frontend_app/src/pages/TasksPage.css Unknown word (125:1)
-  123 |   font-size: 14px;
-  124 |   color: var(--text-secondary, #7c7c7c);
-> 125 | )
-      | ^
-  126 | }
-  127 | .task-actions {
-ERROR in ./src/pages/TasksPage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/TasksPage.css)
-Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):
-SyntaxError
-
-(125:1) /home/kavia/workspace/code-generation/crm-nexus-72019-ca2ff8ac/crm_frontend_app_workspace/crm_frontend_app/src/pages/TasksPage.css Unknown word
-
-  123 |   font-size: 14px;
-  124 |   color: var(--text-secondary, #7c7c7c);
-> 125 | )
-      | ^
-  126 | }
-  127 | .task-actions {
-
-webpack compiled with 1 error
-Compiling...
 Failed to compile.
 
 [eslint] 
@@ -103,18 +79,18 @@ Failed to compile.
 
 [eslint] 
 src/App.js
-Syntax error: Identifier 'React' has already been declared. (190:7) (190:7)
+Syntax error: Identifier 'React' has already been declared. (191:7) (191:7)
 ERROR in ./src/App.js
 Module build failed (from ./node_modules/babel-loader/lib/index.js):
-SyntaxError: /home/kavia/workspace/code-generation/crm-nexus-72019-ca2ff8ac/crm_frontend_app_workspace/crm_frontend_app/src/App.js: Identifier 'React' has already been declared. (190:7)
+SyntaxError: /home/kavia/workspace/code-generation/crm-nexus-72019-ca2ff8ac/crm_frontend_app_workspace/crm_frontend_app/src/App.js: Identifier 'React' has already been declared. (191:7)
 
-  188 |   return <section><h2>Metrics & Analytics</h2><p>Analytics and metrics visualizations.</p></section>;
-  189 | }
-> 190 | import React, { useState } from "react";
+  189 |   return <section><h2>Metrics & Analytics</h2><p>Analytics and metrics visualizations.</p></section>;
+  190 | }
+> 191 | import React, { useState } from "react";
       |        ^
-  191 |
-  192 | // PUBLIC_INTERFACE
-  193 | function ExportPage() {
+  192 |
+  193 | // PUBLIC_INTERFACE
+  194 | function ExportPage() {
     at constructor (/home/kavia/workspace/code-generation/crm-nexus-72019-ca2ff8ac/crm_frontend_app_workspace/crm_frontend_app/node_modules/@babel/parser/lib/index.js:360:19)
     at FlowParserMixin.raise (/home/kavia/workspace/code-generation/crm-nexus-72019-ca2ff8ac/crm_frontend_app_workspace/crm_frontend_app/node_modules/@babel/parser/lib/index.js:3327:19)
     at FlowScopeHandler.checkRedeclarationInScope (/home/kavia/workspace/code-generation/crm-nexus-72019-ca2ff8ac/crm_frontend_app_workspace/crm_frontend_app/node_modules/@babel/parser/lib/index.js:1555:19)
@@ -153,6 +129,7 @@ SyntaxError: /home/kavia/workspace/code-generation/crm-nexus-72019-ca2ff8ac/crm_
 
 ERROR in [eslint] 
 src/App.js
-  Line 190:7:  Parsing error: Identifier 'React' has already been declared. (190:7)
+  Line 191:7:  Parsing error: Identifier 'React' has already been declared. (191:7)
 
 webpack compiled with 2 errors
+Compiling...
