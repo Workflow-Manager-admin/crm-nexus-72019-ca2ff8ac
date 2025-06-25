@@ -1,62 +1,162 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, NavLink, Navigate } from 'react-router-dom';
 import './App.css';
+import { AuthProvider, useAuth } from './auth/AuthContext';
+import ProtectedRoute from './auth/ProtectedRoute';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
 
 // PUBLIC_INTERFACE
 function App() {
-  // Theme state; carried over
   const [theme, setTheme] = useState('light');
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
-  };
+  const toggleTheme = () => setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
 
   return (
-    <Router>
-      <div className="crm-layout">
-        <Sidebar />
-        <div className="crm-main">
-          <TopNav theme={theme} toggleTheme={toggleTheme} />
-          <div className="crm-content">
-            <Routes>
-              <Route path="/" element={<Navigate to="/dashboard" />} />
-              <Route path="/dashboard" element={<DashboardPage />} />
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/signup" element={<SignupPage />} />
-              <Route path="/customers" element={<CustomersPage />} />
-              <Route path="/interactions" element={<InteractionsPage />} />
-              <Route path="/tasks" element={<TasksPage />} />
-              <Route path="/metrics" element={<MetricsPage />} />
-              <Route path="/export" element={<ExportPage />} />
-              <Route path="*" element={<NotFoundPage />} />
-            </Routes>
+    <AuthProvider>
+      <Router>
+        <div className="crm-layout">
+          <Sidebar />
+          <div className="crm-main">
+            <TopNav theme={theme} toggleTheme={toggleTheme} />
+            <div className="crm-content">
+              <Routes>
+                <Route path="/" element={<Navigate to="/dashboard" />} />
+                <Route
+                  path="/dashboard"
+                  element={
+                    <ProtectedRoute>
+                      <DashboardPage />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/signup" element={<SignupPage />} />
+                <Route
+                  path="/customers"
+                  element={
+                    <ProtectedRoute>
+                      <CustomersPage />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/interactions"
+                  element={
+                    <ProtectedRoute>
+                      <InteractionsPage />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/tasks"
+                  element={
+                    <ProtectedRoute>
+                      <TasksPage />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/metrics"
+                  element={
+                    <ProtectedRoute>
+                      <MetricsPage />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/export"
+                  element={
+                    <ProtectedRoute>
+                      <ExportPage />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route path="*" element={<NotFoundPage />} />
+              </Routes>
+            </div>
           </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </AuthProvider>
   );
 }
 
+import { useAuth } from './auth/AuthContext';
+
 // Sidebar navigation
 function Sidebar() {
+  const { isAuthenticated, user, logout } = useAuth();
   return (
     <aside className="crm-sidebar">
       <div className="crm-logo">CRM Nexus</div>
       <nav>
         <ul>
-          <li><NavLink to="/dashboard" className={({isActive})=>isActive?'active':''}>Dashboard</NavLink></li>
-          <li><NavLink to="/customers" className={({isActive})=>isActive?'active':''}>Customers</NavLink></li>
-          <li><NavLink to="/interactions" className={({isActive})=>isActive?'active':''}>Interactions</NavLink></li>
-          <li><NavLink to="/tasks" className={({isActive})=>isActive?'active':''}>Tasks</NavLink></li>
-          <li><NavLink to="/metrics" className={({isActive})=>isActive?'active':''}>Metrics</NavLink></li>
-          <li><NavLink to="/export" className={({isActive})=>isActive?'active':''}>Export CSV</NavLink></li>
+          <li>
+            <NavLink to="/dashboard" className={({ isActive }) => (isActive ? 'active' : '')}>
+              Dashboard
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/customers" className={({ isActive }) => (isActive ? 'active' : '')}>
+              Customers
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/interactions" className={({ isActive }) => (isActive ? 'active' : '')}>
+              Interactions
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/tasks" className={({ isActive }) => (isActive ? 'active' : '')}>
+              Tasks
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/metrics" className={({ isActive }) => (isActive ? 'active' : '')}>
+              Metrics
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/export" className={({ isActive }) => (isActive ? 'active' : '')}>
+              Export CSV
+            </NavLink>
+          </li>
         </ul>
       </nav>
       <div className="crm-sidebar-auth-links">
-        <NavLink to="/login" className={({isActive})=>isActive?'active':''}>Login</NavLink>
-        <NavLink to="/signup" className={({isActive})=>isActive?'active':''}>Sign Up</NavLink>
+        {!isAuthenticated ? (
+          <>
+            <NavLink to="/login" className={({ isActive }) => (isActive ? 'active' : '')}>
+              Login
+            </NavLink>
+            <NavLink to="/signup" className={({ isActive }) => (isActive ? 'active' : '')}>
+              Sign Up
+            </NavLink>
+          </>
+        ) : (
+          <>
+            <span style={{ fontSize: 14, marginBottom: 2 }}>
+              {user ? <>Signed in as <strong>{user.username || user.email}</strong></> : null}
+            </span>
+            <button
+              onClick={logout}
+              style={{
+                background: 'transparent',
+                border: 'none',
+                color: 'crimson',
+                cursor: 'pointer',
+                padding: 0,
+                marginTop: 4,
+                textAlign: 'left'
+              }}
+            >
+              Log out
+            </button>
+          </>
+        )}
       </div>
     </aside>
   );
@@ -83,12 +183,7 @@ function TopNav({ theme, toggleTheme }) {
 function DashboardPage() {
   return <section><h2>Dashboard</h2><p>Overview charts and activity summary.</p></section>;
 }
-function LoginPage() {
-  return <section><h2>Login</h2><p>User login form will appear here.</p></section>;
-}
-function SignupPage() {
-  return <section><h2>Sign Up</h2><p>Registration form will appear here.</p></section>;
-}
+
 function CustomersPage() {
   return <section><h2>Customers</h2><p>Customers table/list page.</p></section>;
 }
