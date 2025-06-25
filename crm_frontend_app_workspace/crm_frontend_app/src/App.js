@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, NavLink, Navigate } from 'react-router-dom';
 import './App.css';
-import { AuthProvider, useAuth } from './auth/AuthContext';
+import { AuthProvider } from './auth/AuthContext';
 import ProtectedRoute from './auth/ProtectedRoute';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
+import CustomersPage from "./pages/CustomersPage";
+import InteractionsPage from "./pages/InteractionsPage";
 
 // PUBLIC_INTERFACE
 function App() {
@@ -84,11 +86,9 @@ function App() {
   );
 }
 
-import { useAuth } from './auth/AuthContext';
-
 // Sidebar navigation
 function Sidebar() {
-  const { isAuthenticated, user, logout } = useAuth();
+  const { isAuthenticated, user, logout } = require('./auth/AuthContext').useAuth();
   return (
     <aside className="crm-sidebar">
       <div className="crm-logo">CRM Nexus</div>
@@ -182,11 +182,6 @@ function TopNav({ theme, toggleTheme }) {
 // ---- Page Components (Skeletons) ---- //
 function DashboardPage() {
   return <section><h2>Dashboard</h2><p>Overview charts and activity summary.</p></section>;
-}
-
-import CustomersPage from "./pages/CustomersPage";
-function InteractionsPage() {
-  return <section><h2>Interactions</h2><p>Interaction log - view and add interactions.</p></section>;
 }
 function TasksPage() {
   return <section><h2>Tasks</h2><p>Task assignment and tracking page.</p></section>;
