@@ -24,7 +24,11 @@ const options = {
       {
         name: 'Interactions',
         description: 'Log and view customer interactions'
-      }
+      },
+      {
+        name: 'Tasks',
+        description: 'Assign and track tasks for customers'
+      },
     ],
     components: {
       securitySchemes: {
@@ -100,6 +104,61 @@ const options = {
             occurredAt: { type: 'string', format: 'date-time', description: 'When it happened', example: '2024-04-10T15:00:00Z' }
           },
           required: ['customerId', 'type', 'occurredAt']
+        },
+        Task: {
+          type: 'object',
+          properties: {
+            id: { type: 'integer', description: 'Task ID', example: 42 },
+            title: { type: 'string', description: 'Title', example: 'Follow up call' },
+            description: { type: 'string', nullable: true, description: 'Task details', example: 'Contact customer to discuss renewal.' },
+            dueDate: { type: 'string', format: 'date-time', description: 'Task due date', example: '2024-12-01T17:00:00Z' },
+            status: { type: 'string', enum: ['todo', 'in_progress', 'done', 'cancelled'], description: 'Task status', example: 'todo' },
+            userId: { type: 'integer', description: 'Assignee user ID', example: 2 },
+            customerId: { type: 'integer', description: 'Linked customer ID', example: 1 },
+            createdAt: { type: 'string', format: 'date-time', description: 'Created' },
+            updatedAt: { type: 'string', format: 'date-time', description: 'Updated' },
+            Customer: {
+              type: 'object',
+              description: 'Linked Customer (optional, populated if included)',
+              properties: {
+                id: { type: 'integer', example: 1 },
+                name: { type: 'string', example: 'Jane Doe' },
+                email: { type: 'string', example: 'jane@example.com' }
+              }
+            },
+            User: {
+              type: 'object',
+              description: 'Assigned user (assignee)',
+              properties: {
+                id: { type: 'integer', example: 2 },
+                username: { type: 'string', example: 'user123' },
+                email: { type: 'string', example: 'user@example.com' }
+              }
+            }
+          }
+        },
+        TaskInput: {
+          type: 'object',
+          properties: {
+            title: { type: 'string', description: 'Title', example: 'Arrange demo' },
+            description: { type: 'string', description: 'Task details', example: 'Call to schedule demo' },
+            dueDate: { type: 'string', format: 'date-time', description: 'Due date', example: '2024-12-01T17:00:00Z' },
+            status: { type: 'string', enum: ['todo', 'in_progress', 'done', 'cancelled'], description: 'Task status', example: 'todo' },
+            userId: { type: 'integer', description: 'User ID assigned', example: 2 },
+            customerId: { type: 'integer', description: 'ID of customer', example: 1 },
+          },
+          required: ['title', 'dueDate', 'status', 'userId', 'customerId']
+        },
+        TaskUpdateInput: {
+          type: 'object',
+          properties: {
+            title: { type: 'string', description: 'Title', example: 'Prepare contract' },
+            description: { type: 'string', description: 'Task details', example: 'Draft draft contract with legal.' },
+            dueDate: { type: 'string', format: 'date-time', description: 'Due date', example: '2024-12-15T12:00:00Z' },
+            status: { type: 'string', enum: ['todo', 'in_progress', 'done', 'cancelled'], description: 'Task status', example: 'in_progress' },
+            userId: { type: 'integer', description: 'Assignee', example: 2 },
+            customerId: { type: 'integer', description: 'ID of linked customer', example: 1 },
+          }
         }
       }
     },

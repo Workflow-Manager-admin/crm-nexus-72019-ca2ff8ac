@@ -4,6 +4,7 @@ const authController = require('../controllers/auth');
 const customerController = require('../controllers/customer');
 const { authenticateJWT } = require('../middleware');
 const interactionController = require('../controllers/interaction');
+const taskController = require('../controllers/task');
 
 /**
  * @swagger
@@ -14,6 +15,8 @@ const interactionController = require('../controllers/interaction');
  *     description: Manage customer records
  *   - name: Interactions
  *     description: Log and view customer interactions
+ *   - name: Tasks
+ *     description: Assign and track tasks for customers
  */
 
 const router = express.Router();
@@ -33,6 +36,13 @@ router.delete('/customers/:id', authenticateJWT, customerController.delete.bind(
 router.post('/interactions', authenticateJWT, interactionController.create.bind(interactionController));
 router.get('/interactions', authenticateJWT, interactionController.list.bind(interactionController));
 router.get('/interactions/:id', authenticateJWT, interactionController.retrieve.bind(interactionController));
+
+// Task endpoints (all protected)
+router.post('/tasks', authenticateJWT, taskController.create.bind(taskController));
+router.get('/tasks', authenticateJWT, taskController.list.bind(taskController));
+router.get('/tasks/:id', authenticateJWT, taskController.retrieve.bind(taskController));
+router.put('/tasks/:id', authenticateJWT, taskController.update.bind(taskController));
+router.delete('/tasks/:id', authenticateJWT, taskController.delete.bind(taskController));
 
 /**
  * @swagger
