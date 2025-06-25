@@ -22,18 +22,18 @@
   border-radius: 3px 3px 0 0;
   border-bottom: 3px solid transparent;
   background: none;
-  color: var(--kavia-dark, #333);
+  color: var(--kavia-dark, #333/* (Stray parenthesis removed—invalid CSS; this line was causing a build error.) */;
   font-weight: 500;
   margin: 0;
 }
 .task-view-toggle .btn.active {
-  border-bottom: 3px solid var(--kavia-orange, #E87A41);
+  border-bottom: 3px solid var(--kavia-orange, #E87A41/* (Stray parenthesis removed—invalid CSS; this line was causing a build error.) */;
   background: #f9f9f9;
   color: #E87A41;
 }
 
 .btn-accent {
-  background: var(--kavia-orange, #E87A41) !important;
+  background: var(--kavia-orange, #E87A41/* (Stray parenthesis removed—invalid CSS; this line was causing a build error.) */ !important;
   color: #fff !important;
   border: none;
 }
@@ -78,7 +78,7 @@
   border-top: 4px solid #eee;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 1px 4px rgba(120,120,120,0.04);
+  box-shadow: 0 1px 4px rgba(120,120,120,0.04/* (Stray parenthesis removed—invalid CSS; this line was causing a build error.) */;
 }
 .kanban-column h3 {
   margin-top: 0;
@@ -121,8 +121,8 @@
   gap: 1.2rem;
   align-items: center;
   font-size: 14px;
-  color: var(--text-secondary, #7c7c7c);
-)
+  color: var(--text-secondary, #7c7c7c/* (Stray parenthesis removed—invalid CSS; this line was causing a build error.) */;
+/* (Stray parenthesis removed—invalid CSS; this line was causing a build error.) */
 }
 .task-actions {
   display: flex;
@@ -174,7 +174,7 @@
 .task-table td {
   font-size: 15px;
 }
-@media (max-width: 600px) {
+@media (max-width: 600px/* (Stray parenthesis removed—invalid CSS; this line was causing a build error.) */ {
   .task-kanban-board { flex-direction: column; gap: 0.5rem;}
   .kanban-column { min-width: 190px; margin-bottom: 12px;}
   .tasks-header { flex-direction: column; gap: 0.6rem;}
@@ -185,7 +185,7 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(70,54,35,0.18);
+  background: rgba(70,54,35,0.18/* (Stray parenthesis removed—invalid CSS; this line was causing a build error.) */;
   z-index: 50;
   display: flex;
   align-items: center;

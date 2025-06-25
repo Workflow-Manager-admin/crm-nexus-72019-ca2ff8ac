@@ -6,9 +6,9 @@ Attempting to bind to HOST environment variable: 0.0.0.0
 If this was unintentional, check that you haven't mistakenly set it in your shell.
 Learn more here: https://cra.link/advanced-config
 
-(node:14803) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:27932) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
 (Use `node --trace-deprecation ...` to show where the warning was created)
-(node:14803) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:27932) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
 Starting the development server...
 
 Failed to compile.
@@ -32,5 +32,29 @@ SyntaxError
       | ^
   126 | }
   127 | .task-actions {
+
+webpack compiled with 1 error
+Compiling...
+Failed to compile.
+
+Syntax error: /home/kavia/workspace/code-generation/crm-nexus-72019-ca2ff8ac/crm_frontend_app_workspace/crm_frontend_app/src/pages/TasksPage.css Unclosed bracket (25:13)
+  23 |   border-bottom: 3px solid transparent;
+  24 |   background: none;
+> 25 |   color: var(--kavia-dark, #333/* (Stray parenthesis removed—invalid CSS; this line was causing a build error.) */;
+     |             ^
+  26 |   font-weight: 500;
+  27 |   margin: 0;
+ERROR in ./src/pages/TasksPage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/TasksPage.css)
+Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):
+SyntaxError
+
+(25:13) /home/kavia/workspace/code-generation/crm-nexus-72019-ca2ff8ac/crm_frontend_app_workspace/crm_frontend_app/src/pages/TasksPage.css Unclosed bracket
+
+  23 |   border-bottom: 3px solid transparent;
+  24 |   background: none;
+> 25 |   color: var(--kavia-dark, #333/* (Stray parenthesis removed—invalid CSS; this line was causing a build error.) */;
+     |             ^
+  26 |   font-weight: 500;
+  27 |   margin: 0;
 
 webpack compiled with 1 error
