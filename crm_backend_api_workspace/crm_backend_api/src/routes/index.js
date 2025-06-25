@@ -1,8 +1,20 @@
 const express = require('express');
 const healthController = require('../controllers/health');
+const authController = require('../controllers/auth');
 
 const router = express.Router();
 // Health endpoint
+
+/**
+ * @swagger
+ * tags:
+ *   - name: Auth
+ *     description: User authentication
+ */
+
+// Auth endpoints
+router.post('/auth/register', authController.register.bind(authController));
+router.post('/auth/login', authController.login.bind(authController));
 
 /**
  * @swagger

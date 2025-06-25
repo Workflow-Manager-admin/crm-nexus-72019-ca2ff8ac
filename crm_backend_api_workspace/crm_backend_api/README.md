@@ -14,6 +14,10 @@ This is the backend API server for the CRM project, built with Express.js, Seque
    DB_USER=crmuser
    DB_PASSWORD=changeme
    DB_NAME=crm
+
+   # JWT configuration for auth
+   JWT_SECRET=supersecret_dev_jwt_token
+   JWT_EXPIRY=2d
    ```
 
 4. **Install dependencies:**
