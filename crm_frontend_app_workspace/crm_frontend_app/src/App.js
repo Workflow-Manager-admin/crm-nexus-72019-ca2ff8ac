@@ -184,9 +184,7 @@ function DashboardPage() {
   return <section><h2>Dashboard</h2><p>Overview charts and activity summary.</p></section>;
 }
 
-function CustomersPage() {
-  return <section><h2>Customers</h2><p>Customers table/list page.</p></section>;
-}
+import CustomersPage from "./pages/CustomersPage";
 function InteractionsPage() {
   return <section><h2>Interactions</h2><p>Interaction log - view and add interactions.</p></section>;
 }
