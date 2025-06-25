@@ -183,9 +183,7 @@ function TopNav({ theme, toggleTheme }) {
 function DashboardPage() {
   return <section><h2>Dashboard</h2><p>Overview charts and activity summary.</p></section>;
 }
-function TasksPage() {
-  return <section><h2>Tasks</h2><p>Task assignment and tracking page.</p></section>;
-}
+import TasksPage from "./pages/TasksPage";
 function MetricsPage() {
   return <section><h2>Metrics & Analytics</h2><p>Analytics and metrics visualizations.</p></section>;
 }
