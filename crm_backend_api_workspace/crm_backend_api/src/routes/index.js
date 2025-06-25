@@ -3,6 +3,7 @@ const healthController = require('../controllers/health');
 const authController = require('../controllers/auth');
 const customerController = require('../controllers/customer');
 const { authenticateJWT } = require('../middleware');
+const interactionController = require('../controllers/interaction');
 
 /**
  * @swagger
@@ -11,6 +12,8 @@ const { authenticateJWT } = require('../middleware');
  *     description: User authentication
  *   - name: Customers
  *     description: Manage customer records
+ *   - name: Interactions
+ *     description: Log and view customer interactions
  */
 
 const router = express.Router();
@@ -25,6 +28,11 @@ router.get('/customers', authenticateJWT, customerController.list.bind(customerC
 router.get('/customers/:id', authenticateJWT, customerController.retrieve.bind(customerController));
 router.put('/customers/:id', authenticateJWT, customerController.update.bind(customerController));
 router.delete('/customers/:id', authenticateJWT, customerController.delete.bind(customerController));
+
+// Interaction endpoints (all protected)
+router.post('/interactions', authenticateJWT, interactionController.create.bind(interactionController));
+router.get('/interactions', authenticateJWT, interactionController.list.bind(interactionController));
+router.get('/interactions/:id', authenticateJWT, interactionController.retrieve.bind(interactionController));
 
 /**
  * @swagger
