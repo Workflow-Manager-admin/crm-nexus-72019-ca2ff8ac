@@ -185,9 +185,7 @@ function TopNav({ theme, toggleTheme }) {
 function DashboardPage() {
   return <section><h2>Dashboard</h2><p>Overview charts and activity summary.</p></section>;
 }
-function MetricsPage() {
-  return <section><h2>Metrics & Analytics</h2><p>Analytics and metrics visualizations.</p></section>;
-}
+import MetricsPage from "./pages/MetricsPage";
 function NotFoundPage() {
   return <section><h2>404 Not Found</h2><p>The page you requested does not exist.</p></section>;
 }
