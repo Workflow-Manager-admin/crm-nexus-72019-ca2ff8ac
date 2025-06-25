@@ -6,9 +6,9 @@ Attempting to bind to HOST environment variable: 0.0.0.0
 If this was unintentional, check that you haven't mistakenly set it in your shell.
 Learn more here: https://cra.link/advanced-config
 
-(node:13738) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:14803) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
 (Use `node --trace-deprecation ...` to show where the warning was created)
-(node:13738) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:14803) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
 Starting the development server...
 
 Failed to compile.
@@ -20,10 +20,6 @@ Syntax error: /home/kavia/workspace/code-generation/crm-nexus-72019-ca2ff8ac/crm
       | ^
   126 | }
   127 | .task-actions {
-WARNING in [eslint] 
-src/auth/AuthContext.js
-  Line 1:44:  'useEffect' is defined but never used  no-unused-vars
-
 ERROR in ./src/pages/TasksPage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/TasksPage.css)
 Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):
 SyntaxError
@@ -37,105 +33,4 @@ SyntaxError
   126 | }
   127 | .task-actions {
 
-ERROR in [eslint] 
-src/App.js
-  Line 188:1:  Import in body of module; reorder to top  import/first
-
-src/pages/LoginPage.js
-  Line 19:13:  'Navigate' is not defined  react/jsx-no-undef
-
-src/pages/SignupPage.js
-  Line 17:13:  'Navigate' is not defined  react/jsx-no-undef
-
-src/pages/TasksPage.js
-  Line 64:1:  Import in body of module; reorder to top  import/first
-
-Search for the keywords to learn more about each error.
-
-webpack compiled with 2 errors and 1 warning
-Compiling...
-Failed to compile.
-
-Syntax error: /home/kavia/workspace/code-generation/crm-nexus-72019-ca2ff8ac/crm_frontend_app_workspace/crm_frontend_app/src/pages/TasksPage.css Unknown word (125:1)
-  123 |   font-size: 14px;
-  124 |   color: var(--text-secondary, #7c7c7c);
-> 125 | )
-      | ^
-  126 | }
-  127 | .task-actions {
-WARNING in [eslint] 
-src/auth/AuthContext.js
-  Line 1:44:  'useEffect' is defined but never used  no-unused-vars
-
-ERROR in ./src/pages/TasksPage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/TasksPage.css)
-Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):
-SyntaxError
-
-(125:1) /home/kavia/workspace/code-generation/crm-nexus-72019-ca2ff8ac/crm_frontend_app_workspace/crm_frontend_app/src/pages/TasksPage.css Unknown word
-
-  123 |   font-size: 14px;
-  124 |   color: var(--text-secondary, #7c7c7c);
-> 125 | )
-      | ^
-  126 | }
-  127 | .task-actions {
-
-ERROR in [eslint] 
-src/App.js
-  Line 188:1:  Import in body of module; reorder to top  import/first
-
-src/pages/LoginPage.js
-  Line 19:13:  'Navigate' is not defined  react/jsx-no-undef
-
-src/pages/SignupPage.js
-  Line 17:13:  'Navigate' is not defined  react/jsx-no-undef
-
-src/pages/TasksPage.js
-  Line 64:1:  Import in body of module; reorder to top  import/first
-
-Search for the keywords to learn more about each error.
-
-webpack compiled with 2 errors and 1 warning
-Compiling...
-Failed to compile.
-
-Syntax error: /home/kavia/workspace/code-generation/crm-nexus-72019-ca2ff8ac/crm_frontend_app_workspace/crm_frontend_app/src/pages/TasksPage.css Unknown word (125:1)
-  123 |   font-size: 14px;
-  124 |   color: var(--text-secondary, #7c7c7c);
-> 125 | )
-      | ^
-  126 | }
-  127 | .task-actions {
-WARNING in [eslint] 
-src/auth/AuthContext.js
-  Line 1:44:  'useEffect' is defined but never used  no-unused-vars
-
-ERROR in ./src/pages/TasksPage.css (./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].oneOf[5].use[2]!./node_modules/source-map-loader/dist/cjs.js!./src/pages/TasksPage.css)
-Module build failed (from ./node_modules/postcss-loader/dist/cjs.js):
-SyntaxError
-
-(125:1) /home/kavia/workspace/code-generation/crm-nexus-72019-ca2ff8ac/crm_frontend_app_workspace/crm_frontend_app/src/pages/TasksPage.css Unknown word
-
-  123 |   font-size: 14px;
-  124 |   color: var(--text-secondary, #7c7c7c);
-> 125 | )
-      | ^
-  126 | }
-  127 | .task-actions {
-
-ERROR in [eslint] 
-src/App.js
-  Line 188:1:  Import in body of module; reorder to top  import/first
-
-src/pages/LoginPage.js
-  Line 19:13:  'Navigate' is not defined  react/jsx-no-undef
-
-src/pages/SignupPage.js
-  Line 17:13:  'Navigate' is not defined  react/jsx-no-undef
-
-src/pages/TasksPage.js
-  Line 64:1:  Import in body of module; reorder to top  import/first
-
-Search for the keywords to learn more about each error.
-
-webpack compiled with 2 errors and 1 warning
+webpack compiled with 1 error

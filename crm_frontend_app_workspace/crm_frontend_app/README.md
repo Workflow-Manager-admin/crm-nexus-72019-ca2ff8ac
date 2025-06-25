@@ -19,6 +19,24 @@ This is the frontend web UI for CRM Nexus, a modern and responsive customer rela
 
 In the `crm_frontend_app` directory:
 
+---
+
+### ⚠️ Troubleshooting: "Invalid Host Header" when accessing via Docker, Cloud IDE, or remote device
+
+If you get an "Invalid Host header" error when using the development server from a different machine (cloud IDE, Docker, or VM):
+
+1. **Solution:** The project now includes a `.env.development` file to disable the host check for development builds.
+2. Alternatively, you can explicitly set the development server to listen on all interfaces by using:
+
+    ```
+    HOST=0.0.0.0
+    PORT=3000
+    ```
+
+3. **Security Warning:** Never use `DANGEROUSLY_DISABLE_HOST_CHECK=true` in production.
+
+---
+
 - Install dependencies:
   ```bash
   npm install
