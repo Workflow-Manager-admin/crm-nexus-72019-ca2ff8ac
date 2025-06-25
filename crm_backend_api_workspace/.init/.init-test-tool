@@ -1,0 +1,4 @@
+{
+    "command": "npm run test",
+    "working_directory": "/home/kavia/workspace/code-generation/crm-nexus-72019-ca2ff8ac/crm_backend_api_workspace/crm_backend_api"
+}
