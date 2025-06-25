@@ -6,7 +6,7 @@ const options = {
     info: {
       title: 'CRM Express API',
       version: '1.0.0',
-      description: 'CRM API documented with Swagger. Includes JWT authentication for protected endpoints.',
+      description: 'CRM API documented with Swagger.\n\n**Authentication:**\n- Register at `/auth/register` or login at `/auth/login` to obtain a JWT.\n- Use the "Authorize" button above and paste your token (without quotes) as: `Bearer {your_token}`.\n- All endpoints (except `/auth/*` and `/`) are protected by default and require Authorization header.\n\n',
     },
     tags: [
       {

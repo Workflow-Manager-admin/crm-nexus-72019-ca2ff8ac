@@ -66,6 +66,20 @@ This will connect to PostgreSQL, create tables for User, Customer, Interaction, 
 - Do **not** commit your `.env` file or private credentials to version control.
 - This backend uses Sequelize [sync](https://sequelize.org/docs/v6/core-concepts/model-basics/#synchronizing-all-models-at-once) for automigrating tables in development. For advanced production usage, adopt proper migrations.
 
+## Authentication and JWT Config
+
+- User registration and login endpoints (`/auth/register` and `/auth/login`) issue a JWT on successful authentication.
+- **JWT tokens must be included as** `Authorization: Bearer {your_token}` **for protected endpoints.**
+- The following environment variables control JWT behavior:
+  - `JWT_SECRET` — *Required*. Secret key used to sign JWTs. Should be a long, random value in production.
+  - `JWT_EXPIRY` — JWT expiration (default: `2d` for 2 days).
+
+Example `.env` for authentication:
+```
+JWT_SECRET=yourlongrandomjwtsecret
+JWT_EXPIRY=2d
+```
+
 ## API Documentation
 
 Interactive API documentation is available at `/docs` when the server is running.

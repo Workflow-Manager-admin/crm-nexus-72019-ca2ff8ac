@@ -10,6 +10,9 @@ class AuthController {
    * /auth/register:
    *   post:
    *     summary: Register a new user
+   *     description: |
+   *       Registers a new user account. Responds with a JWT for authentication on success.
+   *       The JWT must be used in the Authorization header (see `BearerAuth` security scheme).
    *     tags: [Auth]
    *     requestBody:
    *       required: true
@@ -58,7 +61,10 @@ class AuthController {
    * @swagger
    * /auth/login:
    *   post:
-   *     summary: Login and receive JWT
+   *     summary: Login user and receive JWT
+   *     description: |
+   *       Authenticate using email and password. Responds with a JWT for further requests.
+   *       The JWT must be included in the Authorization header for protected endpoints.
    *     tags: [Auth]
    *     requestBody:
    *       required: true
