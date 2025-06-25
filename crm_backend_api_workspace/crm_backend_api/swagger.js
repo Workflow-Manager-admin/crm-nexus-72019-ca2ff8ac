@@ -29,6 +29,10 @@ const options = {
         name: 'Tasks',
         description: 'Assign and track tasks for customers'
       },
+      {
+        name: 'Metrics',
+        description: 'Analytics/metrics endpoints for dashboard charts and statistics'
+      }
     ],
     components: {
       securitySchemes: {
